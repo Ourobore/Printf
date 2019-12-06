@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_struct.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
-
-typedef struct	s_conv
+t_conv  ft_init()
 {
-	char			c;
-	char			*s;
-	char			*p;
-	int				d;
-	int				i;
-	unsigned int	u;
-	char			*minx;
-	char			*majx;
-	char			*percent;
-	int				left;
-	int				fill;
-	int				precision;
-	int				width;
-}				t_conv;
+    t_conv elem;
 
-int				ft_printf(const char *s, ...);
-void			ft_slash(char *s);
-t_conv			ft_init();
-
-#endif
+    elem.c = 0;
+    elem.s = 0;
+    elem.p = 0;
+    elem.d = 0;
+    elem.i = 0;
+    elem.u = 0;
+    elem.minx = 0;
+    elem.majx = 0;
+    elem.percent = 0;
+    elem.left = 0;
+    elem.fill = 0;
+    elem.precision = 0;
+    elem.width = 0;
+    return (elem);
+}

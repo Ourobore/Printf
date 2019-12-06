@@ -12,6 +12,22 @@
 
 #include "ft_printf.h"
 
+void	ft_slash(char *s, int *i)
+{
+	if (s[i + 1] == 't')
+		write(1, '\t', 1);
+	else if (s[i + 1] == ' ')
+		write(1, ' ', 1);
+	else if (s[i + 1] == 'f')
+		write(1, '\f', 1);
+	else if (s[i + 1] == 'n')
+		write(1, '\n', 1);
+	else if (s[i + 1] == 'r')
+		write(1, '\r', 1);
+	else if (s[i + 1] == 'v')
+		write(1, '\v', 1);
+}
+
 t_conv	ft_parse(char *s, t_conv conv)
 {
 	int i;
@@ -22,7 +38,7 @@ t_conv	ft_parse(char *s, t_conv conv)
 	while (s[i])
 	{
 		if (s[i] == '\\')
-			ft_slash();
+			ft_slash(s, &i);
 		else if (s[i] == '%')
 			ft_conversion();
 		else
