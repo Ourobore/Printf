@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 13:03:08 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/03 13:25:58 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/10 09:18:30 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ typedef struct	s_conv
 }				t_conv;
 
 int				ft_printf(const char *s, ...);
-void			ft_slash(char *s);
-t_conv			ft_init();
+t_conv			ft_parse(char *s, t_conv conv);
+t_conv			ft_init(t_conv elem);
+void			ft_convert(char *s, t_conv conv, int *i);
 
 #endif

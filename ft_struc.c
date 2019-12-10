@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   ft_struc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/03 13:26:52 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/10 09:19:33 by lchapren         ###   ########.fr       */
+/*   Created: 2019/12/10 08:04:58 by lchapren          #+#    #+#             */
+/*   Updated: 2019/12/10 08:13:12 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_conv	ft_parse(char *s, t_conv conv)
+t_conv	ft_init(t_conv elem)
 {
-	int i;
-
-	i = 0;
-	if (!s)
-		return (conv);
-	while (s[i])
-	{
-		if (s[i] == '%')
-			ft_convert(s, conv, &i);
-		else
-			write(1, &s[i], 1);
-		i++;
-	}
-	return (conv);
+	elem.c = 0;
+	elem.s = 0;
+	elem.p = 0;
+	elem.d = 0;
+	elem.i = 0;
+	elem.u = 0;
+	elem.minx = 0;
+	elem.majx = 0;
+	elem.percent = 0;
+	elem.left = 0;
+	elem.fill = 0;
+	elem.precision = 0;
+	elem.width = 0;
+	return (elem);
 }
