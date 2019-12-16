@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struc.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 08:04:58 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/16 10:53:59 by lchapren         ###   ########.fr       */
+/*   Created: 2019/12/10 08:09:05 by lchapren          #+#    #+#             */
+/*   Updated: 2019/12/16 11:35:59 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_flags	ft_init_flags()
+int main()
 {
-	t_flags f;
-
-	f.left = 0;
-	f.fill = 0;
-	f.precision = -1;
-	f.width = 0;
-	f.error = 0;
-	return (f);
-}
-
-t_conv	ft_init(t_conv elem)
-{
-	elem.c = 0;
-	elem.s = 0;
-	elem.p = 0;
-	elem.d = 0;
-	elem.i = 0;
-	elem.u = 0;
-	elem.minx = 0;
-	elem.majx = 0;
-	elem.percent = 0;
-	elem.left = 0;
-	elem.fill = 0;
-	elem.precision = 0;
-	elem.width = 0;
-	return (elem);
+	//t_conv	elem;
+	//elem = ft_init(elem);
+	//printf("\n==== MINE =====\n");
+	//ft_parse("abc%asddtd%hjvcef%%", elem);
+	printf("==== REAL =====\n");
+	printf("|%010d|\n", 11);
+	printf("%d\n", get_flags("%010.000d").width);
 }

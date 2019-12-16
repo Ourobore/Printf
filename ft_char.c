@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struc.c                                         :+:      :+:    :+:   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 08:04:58 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/16 10:53:59 by lchapren         ###   ########.fr       */
+/*   Created: 2019/12/11 08:58:43 by lchapren          #+#    #+#             */
+/*   Updated: 2019/12/16 10:22:41 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-t_flags	ft_init_flags()
+/*
+void	ft_char(char *formula, t_flags f)
 {
-	t_flags f;
+	
+	int		i;
 
-	f.left = 0;
-	f.fill = 0;
-	f.precision = -1;
-	f.width = 0;
-	f.error = 0;
-	return (f);
+	i = 0;
+	if (f.error == 1 || f.precision > 0)
+	{
+		g_return = -1;
+		return ;
+	}
 }
-
-t_conv	ft_init(t_conv elem)
-{
-	elem.c = 0;
-	elem.s = 0;
-	elem.p = 0;
-	elem.d = 0;
-	elem.i = 0;
-	elem.u = 0;
-	elem.minx = 0;
-	elem.majx = 0;
-	elem.percent = 0;
-	elem.left = 0;
-	elem.fill = 0;
-	elem.precision = 0;
-	elem.width = 0;
-	return (elem);
-}
+*/

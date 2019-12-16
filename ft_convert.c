@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 09:07:24 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/10 11:23:38 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/16 10:23:29 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		is_conv(char *s, int i)
 	else
 		return (-1);
 }
-
+/*
 void	ft_call(char *formula, char c)
 {
 	if (c == 'c')
@@ -36,9 +36,10 @@ void	ft_call(char *formula, char c)
 		ft_integer(formula);
 	else if (c == 'u' || c == 'x' || c == 'X')
 		ft_unsigned(formula);
+		
 }
-
-void	ft_convert(char *s, t_conv conv, int *i)
+*/
+void	ft_convert(char *s, int *i)
 {
 	char	*formula;
 	char	c;
@@ -51,6 +52,6 @@ void	ft_convert(char *s, t_conv conv, int *i)
 	c = s[*i];
 	formula = ft_substr(s, start, (*i - start) + 1);
 	printf("F: %s\n", formula);
-	ft_call(formula, c);
+	//ft_call(formula, c);
 	free(formula);
 }
