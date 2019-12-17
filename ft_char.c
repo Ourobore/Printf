@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 08:58:43 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/16 10:22:41 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/16 14:13:05 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 /*
 void	ft_char(char *formula, t_flags f)
 {
-	
 	int		i;
 
 	i = 0;
-	if (f.error == 1 || f.precision > 0)
-	{
+	if (f.error || f.fill || f.precision != -1)
 		g_return = -1;
-		return ;
+	if (f.left)
+	{
+		write(1, %)
 	}
 }
 */

@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struc.c                                         :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 08:04:58 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/17 10:23:00 by lchapren         ###   ########.fr       */
+/*   Created: 2019/12/16 14:28:16 by lchapren          #+#    #+#             */
+/*   Updated: 2019/12/17 10:11:30 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_flags	ft_init_flags(void)
+int	ft_printf(const char *s, ...)
 {
 	t_flags	f;
+	va_list	va;
 
-	f.left = 0;
-	f.fill = 0;
-	f.precision = -1;
-	f.width = 0;
-	f.error = 0;
-	return (f);
+	va_start(va, s);
+	ft_parse(s, &f, &va);
+	va_end(va);
+	return (1);
 }
