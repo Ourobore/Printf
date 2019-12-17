@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 08:09:05 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/17 09:54:30 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/17 10:52:18 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int main()
 	//ft_parse("abc%asddtd%hjvcef%%", elem);
 	printf("==== REAL =====\n");
 	printf("|%10c|\n", 'a');
-	printf("%d\n", ft_printf("abc%c def\n", 'c'));
+	printf("%d\n", ft_printf("abc%-c def\n", 'z'));
 }

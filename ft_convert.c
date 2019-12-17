@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 09:07:24 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/17 10:23:42 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/17 10:57:01 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,22 @@ int		is_conv(const char *s, int i)
 		return (-1);
 }
 
-void	get_type(char c, va_list *va)
+t_type	get_type(char c, va_list *va)
 {
+	t_type	ret;
+
+	ret = ft_init_type();
 	if (c == 'c')
-		va_arg(*va, int);
+		ret.c = va_arg(*va, int);
 	else if (c == 's')
-		va_arg(*va, char*);
+		ret.s = va_arg(*va, char*);
 	else if (c == 'p')
-		va_arg(*va, void*);
+		ret.p = va_arg(*va, void*);
 	else if (c == 'd' || c == 'i')
-		va_arg(*va, int);
+		ret.i = va_arg(*va, int);
 	else if (c == 'u' || c == 'x' || c == 'X')
-		va_arg(*va, int);
+		ret.u = va_arg(*va, int);
+	return (ret);
 }
 
 /*
@@ -58,6 +62,7 @@ void	ft_call(char *formula, char c, t_flags *f, va_list *va)
 
 void	ft_convert(const char *s, int *i, t_flags *f, va_list *va)
 {
+	t_type	t;
 	char	*formula;
 	char	c;
 	int		start;
@@ -67,7 +72,8 @@ void	ft_convert(const char *s, int *i, t_flags *f, va_list *va)
 	while (is_conv(s, *i) == -1 && s[*i])
 		*i += 1;
 	c = s[*i];
-	get_type(c, &(*va));
+	t = get_type(c, &(*va));
+	printf(":%c:", t.c);
 	formula = ft_substr(s, start, (*i - start) + 1);
 	*f = get_flags(formula, f);
 	//ft_call(formula, c, &f, &va);

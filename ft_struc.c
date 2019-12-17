@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 08:04:58 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/17 10:23:00 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/17 10:56:35 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,16 @@ t_flags	ft_init_flags(void)
 	f.width = 0;
 	f.error = 0;
 	return (f);
+}
+
+t_type	ft_init_type(void)
+{
+	t_type	t;
+
+	t.i = 0;
+	t.c = 0;
+	t.s = 0;
+	t.p = 0;
+	t.u = 0;
+	return (t);
 }
