@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 09:07:24 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/17 10:57:01 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/17 12:53:13 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,21 @@ t_type	get_type(char c, va_list *va)
 	return (ret);
 }
 
-/*
-
-void	ft_call(char *formula, char c, t_flags *f, va_list *va)
+void	ft_call(char c, t_flags f, t_type t)
 {
 	if (c == 'c')
-		ft_char(formula, &va);
-	else if (c == 's')
+		ft_char(f, t);
+	/*else if (c == 's')
 		ft_string(formula, &va);
 	else if (c == 'p')
-		ft_pointer(formula, &va);
+		ft_pointer(formula, &va);*/
 	else if (c == '%')
-		ft_percent(formula, &va);
-	else if (c == 'd' || c == 'i')
+		ft_percent(f);
+	/*else if (c == 'd' || c == 'i')
 		ft_integer(formula, &va);
 	else if (c == 'u' || c == 'x' || c == 'X')
-		ft_unsigned(formula, &va);
+		ft_unsigned(formula, &va);*/
 }
-
-*/
 
 void	ft_convert(const char *s, int *i, t_flags *f, va_list *va)
 {
@@ -73,9 +69,9 @@ void	ft_convert(const char *s, int *i, t_flags *f, va_list *va)
 		*i += 1;
 	c = s[*i];
 	t = get_type(c, &(*va));
-	printf(":%c:", t.c);
+	//printf(":%c:", t.c);
 	formula = ft_substr(s, start, (*i - start) + 1);
 	*f = get_flags(formula, f);
-	//ft_call(formula, c, &f, &va);
+	ft_call(c, *f, t);
 	free(formula);
 }

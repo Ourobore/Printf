@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 14:28:16 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/17 10:11:30 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/17 13:06:22 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ int	ft_printf(const char *s, ...)
 	t_flags	f;
 	va_list	va;
 
+	g_nb_carac = 0;
 	va_start(va, s);
 	ft_parse(s, &f, &va);
 	va_end(va);
-	return (1);
+	return (g_nb_carac);
 }
+
+//Reste a gérer le retour de printf: faire un retour de longueur a la fin de chaine de fonction?
