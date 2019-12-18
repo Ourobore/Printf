@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 14:28:16 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/17 13:06:22 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/18 07:41:22 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 int	ft_printf(const char *s, ...)
 {
-	t_flags	f;
 	va_list	va;
 
 	g_nb_carac = 0;
 	va_start(va, s);
-	ft_parse(s, &f, &va);
+	ft_parse(s, &va);
 	va_end(va);
 	return (g_nb_carac);
 }

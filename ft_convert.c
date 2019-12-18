@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 09:07:24 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/17 12:53:13 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/18 08:24:57 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,9 @@ void	ft_call(char c, t_flags f, t_type t)
 		ft_unsigned(formula, &va);*/
 }
 
-void	ft_convert(const char *s, int *i, t_flags *f, va_list *va)
+void	ft_convert(const char *s, int *i, va_list *va)
 {
+	t_flags	f;
 	t_type	t;
 	char	*formula;
 	char	c;
@@ -68,10 +69,13 @@ void	ft_convert(const char *s, int *i, t_flags *f, va_list *va)
 	while (is_conv(s, *i) == -1 && s[*i])
 		*i += 1;
 	c = s[*i];
-	t = get_type(c, &(*va));
-	//printf(":%c:", t.c);
 	formula = ft_substr(s, start, (*i - start) + 1);
-	*f = get_flags(formula, f);
-	ft_call(c, *f, t);
+	//*i += 1;
+	f = ft_init_flags();
+	f = get_flags(formula, f);
+	if (f.error == 1)
+		return ;
+	t = get_type(c, &(*va));
+	ft_call(c, f, t);
 	free(formula);
 }

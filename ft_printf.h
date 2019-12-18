@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 13:03:08 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/17 13:05:43 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/18 08:10:34 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@ typedef struct	s_type
 }				t_type;
 
 int				ft_printf(const char *s, ...);
-void			ft_parse(const char *s, t_flags *f, va_list *va);
-void			ft_convert(const char *s, int *i, t_flags *f, va_list *va);
+void			ft_parse(const char *s, va_list *va);
+void			ft_convert(const char *s, int *i, va_list *va);
 void			ft_call(char c, t_flags f, t_type t);
 t_type			ft_init_type(void);
 t_flags			ft_init_flags(void);
-t_flags			get_flags(char *formula, t_flags *f);
+t_flags			get_flags(char *formula, t_flags f);
 int				get_length(char *formula);
+int				is_conv(const char *s, int i);
+int				check_formulas(const char *s);
 
 void			ft_char(t_flags f, t_type t);
 void			ft_percent(t_flags f);
