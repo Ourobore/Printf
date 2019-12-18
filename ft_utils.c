@@ -6,11 +6,31 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:31:31 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/18 08:33:02 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/18 09:12:02 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		get_length_int(int n)
+{
+	int i;
+
+	i = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
+}
 
 int		get_length(char *formula)
 {

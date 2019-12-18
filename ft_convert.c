@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 09:07:24 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/18 08:24:57 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/18 11:44:43 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ int		is_conv(const char *s, int i)
 
 t_type	get_type(char c, va_list *va)
 {
-	t_type	ret;
+	t_type	t;
 
-	ret = ft_init_type();
+	t = ft_init_type();
 	if (c == 'c')
-		ret.c = va_arg(*va, int);
+		t.c = va_arg(*va, int);
 	else if (c == 's')
-		ret.s = va_arg(*va, char*);
+		t.s = va_arg(*va, char*);
 	else if (c == 'p')
-		ret.p = va_arg(*va, void*);
+		t.p = va_arg(*va, void*);
 	else if (c == 'd' || c == 'i')
-		ret.i = va_arg(*va, int);
+		t.i = va_arg(*va, int);
 	else if (c == 'u' || c == 'x' || c == 'X')
-		ret.u = va_arg(*va, int);
-	return (ret);
+		t.u = va_arg(*va, int);
+	return (t);
 }
 
 void	ft_call(char c, t_flags f, t_type t)
@@ -50,9 +50,9 @@ void	ft_call(char c, t_flags f, t_type t)
 		ft_pointer(formula, &va);*/
 	else if (c == '%')
 		ft_percent(f);
-	/*else if (c == 'd' || c == 'i')
-		ft_integer(formula, &va);
-	else if (c == 'u' || c == 'x' || c == 'X')
+	else if (c == 'd' || c == 'i')
+		ft_integer(f, t);
+	/*else if (c == 'u' || c == 'x' || c == 'X')
 		ft_unsigned(formula, &va);*/
 }
 
