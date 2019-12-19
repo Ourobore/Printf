@@ -1,50 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_char.c                                          :+:      :+:    :+:   */
+/*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/11 08:58:43 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/19 14:41:09 by lchapren         ###   ########.fr       */
+/*   Created: 2019/12/19 14:09:12 by lchapren          #+#    #+#             */
+/*   Updated: 2019/12/19 14:53:50 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+/*
 
-void	char_write_left(t_flags f, t_type t, int *i)
+int		string_total_length(f_flags f, t_type t)
 {
-	write(1, &(t.c), 1);
-	while (*i < f.width - 1)
-	{
-		write(1, " ", 1);
-		*i += 1;
-	}
+	if (f.precision == -1)
+		return (ft_strlen(t.s) >= f.width ? ft_strlen(t.s) : f.width);
+	if (f.precision >= f.width && f.precision != -1)
+		return (f.precision);
+	else
+		return (f.width);
 }
 
-void	char_write_right(t_flags f, t_type t, int *i)
+void	string_write_left(t_flags f, t_type t)
 {
-	while (*i < f.width - 1)
-	{
-		write(1, " ", 1);
-		*i += 1;
-	}
-	write(1, &t.c, 1);
+	int length;
+
+	length = string_total_length(f, t);
 }
 
-void	ft_char(t_flags f, t_type t)
+void	ft_string(t_flags f, t_type t)
 {
-	int i;
-
-	i = 0;
-	if (f.error || f.fill || f.precision != -1)
+	if (f.error || f.fill)
 		g_nb_carac = -1;
 	else
 	{
 		if (f.left)
-			char_write_left(f, t, &i);
+			string_write_left();
 		else
-			char_write_right(f, t, &i);
-		g_nb_carac += i + 1;
+			string_write_right();
 	}
 }
+*/
+//Precision tronque si trop petit

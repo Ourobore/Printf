@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 13:26:52 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/18 08:46:05 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/19 14:42:07 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ void	ft_parse(const char *s, va_list *va)
 			if (s[i] == '%')
 				ft_convert(s, &i, va);
 			else
+			{
 				write(1, &s[i], 1);
+				g_nb_carac += 1;
+			}
 			i++;
 		}
 	}
@@ -58,6 +61,5 @@ t_flags	get_flags(char *formula, t_flags f)
 			f.error = 1;
 		i++;
 	}
-	//printf("%d:%d:%d:%d:%d\n", f.left, f.fill, f.precision, f.width, f.error);
 	return (f);
 }
