@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:31:31 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/19 10:08:03 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/30 08:23:42 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		get_length(char *formula)
 	return (i);
 }
 
-int		check_formulas(const char *s)
+int		check_formulas(const char *s, va_list *va)
 {
 	t_flags	f;
 	char	*formula;
@@ -58,7 +58,7 @@ int		check_formulas(const char *s)
 			formula = ft_substr(s, start, (i - start) + 1);
 			i++;
 			f = ft_init_flags();
-			f = get_flags(formula, f);
+			f = get_flags(formula, f, &(*va));
 			if (f.error == 1)
 				return (-1);
 		}
