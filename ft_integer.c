@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:53:21 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/19 14:47:14 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/30 11:11:48 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int			integer_total_length(t_flags f, int len_int)
 
 void		integer_write_left(t_flags f, t_type t)
 {
-	int save;
 	int length;
 	int len_int;
 
@@ -39,11 +38,9 @@ void		integer_write_left(t_flags f, t_type t)
 		t.i *= -1;
 		length--;
 	}
-	save = f.precision;
-	while (f.precision-- - len_int > 0)
+	while (length-- - len_int > 0)
 		write(1, "0", 1);
 	ft_putnbr_fd(t.i, 1);
-	f.precision = save;
 	while (length-- > ((len_int >= f.precision) ? len_int : f.precision))
 		write(1, " ", 1);
 }
@@ -63,6 +60,8 @@ void		integer_write_right(t_flags f, t_type t)
 	if (t.i < 0)
 	{
 		write(1, "-", 1);
+		if (f.precision >= f.width)
+			g_nb_carac++;
 		t.i *= -1;
 	}
 	while (f.precision-- - len_int > 0)

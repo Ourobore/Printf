@@ -6,13 +6,13 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:31:31 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 08:23:42 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/30 10:39:24 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		get_length_int(int n)
+int		get_length_int(long int n)
 {
 	int i;
 
@@ -59,6 +59,7 @@ int		check_formulas(const char *s, va_list *va)
 			i++;
 			f = ft_init_flags();
 			f = get_flags(formula, f, &(*va));
+			//printf("%d\n", f.precision);
 			if (f.error == 1)
 				return (-1);
 		}

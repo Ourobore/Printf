@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 13:26:52 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 08:41:28 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/30 09:47:28 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,20 @@ t_flags	get_flags(char *formula, t_flags f, va_list *va)
 		else if (formula[i] == '*')
 		{
 			if (formula[i - 1] == '.')
+			{
 				f.precision = va_arg(*va, int);
+				if (f.precision < 0)
+					f.precision = -1;
+			}
 			else if (!f.width)
+			{
 				f.width = va_arg(*va, int);
+				if (f.width < 0)
+				{
+					f.width *= -1;
+					f.left = 1;
+				}
+			}
 		}
 		else if (formula[i] == '.' && f.precision == -1)
 		{

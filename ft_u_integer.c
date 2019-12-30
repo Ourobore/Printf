@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_u_integer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 15:30:29 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 10:23:45 by lchapren         ###   ########.fr       */
+/*   Created: 2019/12/30 10:05:58 by lchapren          #+#    #+#             */
+/*   Updated: 2019/12/30 11:04:30 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(long int n, int fd)
+void	ft_unsigned_integer(t_flags f, t_type t)
 {
-	long int nbl;
-
-	nbl = n;
-	if (nbl < 0)
-	{
-		write(fd, "-", 1);
-		nbl = nbl * -1;
-	}
-	if (nbl >= 0 && nbl <= 9)
-		ft_putchar_fd(nbl + 48, fd);
+	if (t.u < 0)
+		t.i = 4294967296 + t.u;
 	else
-	{
-		ft_putnbr_fd(nbl / 10, fd);
-		ft_putchar_fd((nbl % 10) + 48, fd);
-	}
+		t.i = t.u;
+	ft_integer(f, t);
 }

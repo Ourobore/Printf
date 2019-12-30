@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 09:07:24 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 08:42:03 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/30 11:11:57 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,17 @@ void	ft_call(char c, t_flags f, t_type t)
 {
 	if (c == 'c')
 		ft_char(f, t);
-	/*else if (c == 's')
-		ft_string(formula, &va);
-	else if (c == 'p')
+	else if (c == 's')
+		ft_string(f, t);
+	/*else if (c == 'p')
 		ft_pointer(formula, &va);*/
 	else if (c == '%')
 		ft_percent(f);
 	else if (c == 'd' || c == 'i')
 		ft_integer(f, t);
-	/*else if (c == 'u' || c == 'x' || c == 'X')
+	else if (c == 'u')
+		ft_unsigned_integer(f, t);
+	/*else if (c == 'x' || c == 'X')
 		ft_unsigned(formula, &va);*/
 }
 

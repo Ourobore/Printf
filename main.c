@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 08:09:05 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 08:42:44 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/30 11:11:31 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int main()
 {
 	//t_flags f = ft_init_flags();
 	printf("==== REAL =====\n");
-	printf("%d\n", printf("|%*c||%*.*d|\n", 3, 'a', 10, 0, 42));
-	printf("%d\n", ft_printf("|%*c||%*.*d|\n", 3, 'a', 10, 0, 42));
+	printf("%d\n", printf("|%7.6u|\n", 10));
+	printf("%d\n", ft_printf("|%7.6u|\n", 10));
 	printf("==== MINE =====\n");
 	//system("leaks a.out");
 }
