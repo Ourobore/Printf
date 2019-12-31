@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 14:09:12 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 09:27:06 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/31 13:23:39 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,3 @@ void	ft_string(t_flags f, t_type t)
 			string_write_right(f, t);
 	}
 }
-//Precision tronque si trop petit -> precis == min / width == max, si min > max max == min

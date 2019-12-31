@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:53:21 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 11:11:48 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/31 08:51:44 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			integer_total_length(t_flags f, int len_int)
 		return (-1);
 }
 
-void		integer_write_left(t_flags f, t_type t)
+void		integer_write_left(t_flags f, t_type t, char *base)
 {
 	int length;
 	int len_int;
@@ -40,12 +40,12 @@ void		integer_write_left(t_flags f, t_type t)
 	}
 	while (length-- - len_int > 0)
 		write(1, "0", 1);
-	ft_putnbr_fd(t.i, 1);
+	ft_putnbr_base_fd(t.i, 1, base);
 	while (length-- > ((len_int >= f.precision) ? len_int : f.precision))
 		write(1, " ", 1);
 }
 
-void		integer_write_right(t_flags f, t_type t)
+void		integer_write_right(t_flags f, t_type t, char *base)
 {
 	int length;
 	int len_int;
@@ -66,10 +66,10 @@ void		integer_write_right(t_flags f, t_type t)
 	}
 	while (f.precision-- - len_int > 0)
 		write(1, "0", 1);
-	ft_putnbr_fd(t.i, 1);
+	ft_putnbr_base_fd(t.i, 1, base);
 }
 
-void		ft_integer(t_flags f, t_type t)
+void		ft_integer(t_flags f, t_type t, char *base)
 {
 	int i;
 
@@ -81,8 +81,8 @@ void		ft_integer(t_flags f, t_type t)
 		if (t.i == 0 && f.precision == 0)
 			return ;
 		else if (f.left)
-			integer_write_left(f, t);
+			integer_write_left(f, t, base);
 		else
-			integer_write_right(f, t);
+			integer_write_right(f, t, base);
 	}
 }

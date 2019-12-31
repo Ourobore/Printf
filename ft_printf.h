@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 13:03:08 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 10:39:34 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/31 15:40:24 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,17 @@ int				check_formulas(const char *s, va_list *va);
 
 void			ft_char(t_flags f, t_type t);
 void			ft_percent(t_flags f);
-void			ft_integer(t_flags f, t_type t);
+void			ft_integer(t_flags f, t_type t, char *base);
 void			ft_string(t_flags f, t_type t);
 void			ft_unsigned_integer(t_flags f, t_type t);
+void			ft_unsigned(t_flags f, t_type t, char *base);
 
 char			*ft_substr(char const *s, unsigned int start, size_t len);
+void			*ft_calloc(size_t count, size_t size);
 int				ft_strlen(char *s);
 int				ft_atoi(const char *s);
 void			ft_putnbr_fd(long int n, int fd);
+void			ft_putnbr_base_fd(int nbr, int fd, char *base);
+char			*convert_int_to_base(long int nbr, char *base);
+
 #endif

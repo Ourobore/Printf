@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 10:05:58 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 11:04:30 by lchapren         ###   ########.fr       */
+/*   Updated: 2019/12/31 08:58:32 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_unsigned_integer(t_flags f, t_type t)
 		t.i = 4294967296 + t.u;
 	else
 		t.i = t.u;
-	ft_integer(f, t);
+	ft_integer(f, t, "0123456789");
 }
