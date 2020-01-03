@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 08:09:05 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/31 15:41:19 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/03 16:56:02 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int main()
 {
+	long int i;
+	i = 0; 
 	printf("==== REAL =====\n");
-	printf("%d\n", printf("|%x|\n", -700));
-	//printf("%d\n", ft_printf("|%-.0x|\n", -10));
-	printf("::%s::\n", convert_int_to_base(-700, "0123456789abcdef"));
+	printf("%d\n", printf("|%010.d|\n", 700000));
+	printf("%d\n", ft_printf("|%010.d|\n", 700000));
+	//printf("[%ld]\n", get_length_int_base(-700000, "0123456789", &i));
 	//ft_putnbr_base_fd(0xfafa, "0123456789abcdef", 1);
 	printf("==== MINE =====\n");
 	//system("leaks a.out");

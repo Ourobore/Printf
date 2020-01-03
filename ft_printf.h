@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 13:03:08 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/31 15:40:24 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/03 11:14:56 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,9 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 void			*ft_calloc(size_t count, size_t size);
 int				ft_strlen(char *s);
 int				ft_atoi(const char *s);
-void			ft_putnbr_fd(long int n, int fd);
-void			ft_putnbr_base_fd(int nbr, int fd, char *base);
+void			ft_putchar_fd(char c, int fd);
+void			ft_putnbr_base_fd(long int nbr, int fd, char *base);
+long int		get_length_int_base(long int nbr, char *base, long int *i);
 char			*convert_int_to_base(long int nbr, char *base);
 
 #endif

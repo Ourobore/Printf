@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 09:07:24 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/31 09:00:51 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/03 15:06:53 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	ft_convert(const char *s, int *i, va_list *va)
 		*i += 1;
 	c = s[*i];
 	formula = ft_substr(s, start, (*i - start) + 1);
-	//*i += 1;
 	f = ft_init_flags();
 	f = get_flags(formula, f, &(*va));
 	if (f.error == 1)

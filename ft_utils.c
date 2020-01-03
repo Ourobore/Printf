@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:31:31 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 10:39:24 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/03 15:09:13 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int		check_formulas(const char *s, va_list *va)
 			i++;
 			f = ft_init_flags();
 			f = get_flags(formula, f, &(*va));
-			//printf("%d\n", f.precision);
 			if (f.error == 1)
 				return (-1);
 		}
@@ -67,4 +66,27 @@ int		check_formulas(const char *s, va_list *va)
 			i++;
 	}
 	return (1);
+}
+
+void			ft_putnbr_base_fd(long int nbr, int fd, char *base)
+{
+	long int		nbl;
+	unsigned int	longueur_b;
+	unsigned int	i;
+
+	i = 0;
+	nbl = nbr;
+	longueur_b = ft_strlen(base);
+	if (nbl < 0)
+	{
+		write(1, "-", 1);
+		nbl = nbl * -1;
+	}
+	if (nbl >= 0 && nbl <= longueur_b - 1)
+		ft_putchar_fd(base[nbl], fd);
+	else
+	{
+		ft_putnbr_base_fd(nbl / longueur_b, fd, base);
+		ft_putchar_fd(base[(nbl % longueur_b)], fd);
+	}
 }

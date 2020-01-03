@@ -6,16 +6,18 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 12:50:36 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/31 15:46:34 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/03 11:07:11 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long int		get_length_int_base(long int nbr, char *base, long int *i)
+long int	get_length_int_base(long int nbr, char *base, long int *i)
 {
 	int	length_base;
 
+	//if (nbr < 0)
+	//	nbr *= -1;
 	length_base = ft_strlen(base);
 	if (nbr >= 0 && nbr <= length_base - 1)
 		*i += 1;
@@ -26,8 +28,8 @@ long int		get_length_int_base(long int nbr, char *base, long int *i)
 	}
 	return (*i);
 }
-
-char	*convert_int_to_base(long int nbr, char *base)
+/*
+char		*convert_int_to_base(long int nbr, char *base)
 {
 	long int	i;
 	int			rest;
@@ -51,8 +53,8 @@ char	*convert_int_to_base(long int nbr, char *base)
 	}
 	return (s);
 }
-
-void	ft_unsigned(t_flags f, t_type t, char *base)
+*/
+void		ft_unsigned(t_flags f, t_type t, char *base)
 {
 	if (t.u < 0)
 		t.i = 4294967296 + t.u;
