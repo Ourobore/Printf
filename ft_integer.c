@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:53:21 by lchapren          #+#    #+#             */
-/*   Updated: 2020/01/03 16:56:13 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/06 08:49:31 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,18 @@ void		integer_write_fill(t_flags f, t_type t, char *base)
 	len_int = get_length_int_base(t.i, base, &len_int);
 	length = integer_total_length(f, len_int);
 	g_nb_carac += length;
-	while (i < f.precision - len_int - 1 &&
-		f.precision != -1 && f.width > f.precision)
-	{
+	while (f.precision > 0 && t.i < 0 &&
+		i++ < f.width - (f.precision > len_int ? f.precision : len_int))
 		write(1, " ", 1);
-		i++;
-	}
+	while (f.precision != -1 && t.i > 0 &&
+			i++ < f.width - (f.precision > len_int ? f.precision : len_int))
+		write(1, " ", 1);
 	if (t.i < 0)
 	{
 		write(1, "-", 1);
 		t.i *= -1;
 	}
+	i--;
 	while (i++ < length - len_int)
 		write(1, "0", 1);
 	ft_putnbr_base_fd(t.i, 1, base);
@@ -130,5 +131,3 @@ void		ft_integer(t_flags f, t_type t, char *base)
 			integer_write_right(f, t, base);
 	}
 }
-// Right et Left sont bon
-//%010.d ne marche pas avec d neg, ainsi que 10.8 et 10. avec d pos
