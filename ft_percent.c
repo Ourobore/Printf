@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 07:47:41 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/18 08:44:18 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/06 11:04:18 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,9 @@ void	ft_percent(t_flags f)
 	int i;
 
 	i = 0;
-	if (f.error)
-		g_nb_carac = -1;
+	if (f.left)
+		percent_write_left(f, &i);
 	else
-	{
-		if (f.left)
-			percent_write_left(f, &i);
-		else
-			percent_write_right(f, &i);
-		g_nb_carac = i + 1;
-	}
+		percent_write_right(f, &i);
+	g_nb_carac += i + 1;
 }

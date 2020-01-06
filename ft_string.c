@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 14:09:12 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/31 13:23:39 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/06 11:03:22 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,8 @@ void	string_write_right(t_flags f, t_type t)
 
 void	ft_string(t_flags f, t_type t)
 {
-	if (f.error || f.fill)
-		g_nb_carac = -1;
+	if (f.left)
+		string_write_left(f, t);
 	else
-	{
-		if (f.left)
-			string_write_left(f, t);
-		else
-			string_write_right(f, t);
-	}
+		string_write_right(f, t);
 }

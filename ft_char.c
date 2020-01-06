@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 08:58:43 by lchapren          #+#    #+#             */
-/*   Updated: 2019/12/30 08:49:42 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/06 11:03:07 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,9 @@ void	ft_char(t_flags f, t_type t)
 	int i;
 
 	i = 0;
-	if (f.error || f.fill || f.precision > 0)
-		g_nb_carac = -1;
+	if (f.left)
+		char_write_left(f, t, &i);
 	else
-	{
-		if (f.left)
-			char_write_left(f, t, &i);
-		else
-			char_write_right(f, t, &i);
-		g_nb_carac += i + 1;
-	}
+		char_write_right(f, t, &i);
+	g_nb_carac += i + 1;
 }

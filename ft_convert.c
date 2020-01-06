@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 09:07:24 by lchapren          #+#    #+#             */
-/*   Updated: 2020/01/03 15:06:53 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/06 11:10:34 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	ft_call(char c, t_flags f, t_type t)
 		ft_char(f, t);
 	else if (c == 's')
 		ft_string(f, t);
-	/*else if (c == 'p')
-		ft_pointer(formula, &va);*/
+	else if (c == 'p')
+		ft_pointer(f, t);
 	else if (c == '%')
 		ft_percent(f);
 	else if (c == 'd' || c == 'i')
@@ -76,8 +76,6 @@ void	ft_convert(const char *s, int *i, va_list *va)
 	formula = ft_substr(s, start, (*i - start) + 1);
 	f = ft_init_flags();
 	f = get_flags(formula, f, &(*va));
-	if (f.error == 1)
-		return ;
 	t = get_type(c, &(*va));
 	ft_call(c, f, t);
 	free(formula);

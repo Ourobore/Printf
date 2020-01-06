@@ -6,30 +6,28 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:31:31 by lchapren          #+#    #+#             */
-/*   Updated: 2020/01/03 15:09:13 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/06 11:24:57 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		get_length_int(long int n)
+long int	get_length_int_base(long int nbr, char *base, long int *i)
 {
-	int i;
+	int	length_base;
 
-	i = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-		n *= -1;
-	while (n)
+	length_base = ft_strlen(base);
+	if (nbr >= 0 && nbr <= length_base - 1)
+		*i += 1;
+	else
 	{
-		n /= 10;
-		i++;
+		get_length_int_base(nbr / length_base, base, i);
+		*i += 1;
 	}
-	return (i);
+	return (*i);
 }
 
-int		get_length(char *formula)
+int		get_length_formula(char *formula)
 {
 	int i;
 
@@ -39,10 +37,30 @@ int		get_length(char *formula)
 	return (i);
 }
 
+int		check_flags(t_flags f, char c)
+{
+	int r;
+
+	r = 1;
+	if (f.error == 1)
+		r = -1;
+	if (c == 'c' && (f.fill || f.precision > 0))
+		r = -1;
+	else if (c == 's' && f.fill)
+		r = -1;
+	else if (c == 'p' && (f.fill || f.precision > 0))
+		r = -1;
+	else if ((c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X') &&
+			(f.left && f.fill))
+		r = -1;
+	return (r);
+}
+
 int		check_formulas(const char *s, va_list *va)
 {
 	t_flags	f;
 	char	*formula;
+	char	c;
 	int		start;
 	int		i;
 
@@ -51,15 +69,14 @@ int		check_formulas(const char *s, va_list *va)
 	{
 		if (s[i] == '%')
 		{
-			start = i;
-			i += 1;
+			start = i++;
 			while (is_conv(s, i) == -1 && s[i])
 				i += 1;
 			formula = ft_substr(s, start, (i - start) + 1);
-			i++;
+			c = s[i++];
 			f = ft_init_flags();
 			f = get_flags(formula, f, &(*va));
-			if (f.error == 1)
+			if (check_flags(f, c) != 1)
 				return (-1);
 		}
 		else
