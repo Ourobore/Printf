@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:31:31 by lchapren          #+#    #+#             */
-/*   Updated: 2020/01/07 15:38:14 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/08 09:07:59 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int		check_flags(t_flags *f, char c)
 		r = -1;
 	if (c == 'c' && (f->fill || f->precision > 0))
 		r = -1;
-	else if (c == 's' && f->fill)
-		r = -1;
+	//else if (c == 's' && f->fill)
+	//	f->fill = 0;
 	else if (c == 'p' && (f->fill))
 		r = -1;
 	else if ((c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X') &&

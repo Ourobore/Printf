@@ -6,7 +6,7 @@
 #    By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/03 12:57:14 by lchapren          #+#    #+#              #
-#    Updated: 2020/01/07 10:06:28 by lchapren         ###   ########.fr        #
+#    Updated: 2020/01/08 08:13:18 by lchapren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ RLIBFT		=	./libft-src
 
 LSRCS		=	$(RLIBFT)/ft_substr.c $(RLIBFT)/ft_calloc.c \
 				$(RLIBFT)/ft_bzero.c $(RLIBFT)/ft_putchar_fd.c \
-				$(RLIBFT)/ft_atoi.c $(RLIBFT)/ft_strlen.c
+				$(RLIBFT)/ft_atoi.c $(RLIBFT)/ft_strlen.c \
+				$(RLIBFT)/ft_strdup.c
 
 RSRCS		=	./src
 
