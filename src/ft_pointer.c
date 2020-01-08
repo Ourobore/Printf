@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 08:58:45 by lchapren          #+#    #+#             */
-/*   Updated: 2020/01/07 15:17:12 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/08 11:27:46 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,9 @@ void	ft_pointer(t_flags f, t_type t)
 		}
 		write(1, "0x", 2);
 		g_nb_carac += 2;
-		while (i < f.precision)
-		{
+		while (i++ < f.precision)
 			write(1, "0", 1);
-			i++;
-		}
-		g_nb_carac += i;
+		g_nb_carac += i - 1;
 	}
 	else if (f.left)
 		pointer_write_left(f, t, len_int);

@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:31:31 by lchapren          #+#    #+#             */
-/*   Updated: 2020/01/08 10:26:47 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/08 10:45:57 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ long int	get_length_int_base(long int nbr, char *base, long int *i)
 	return (*i);
 }
 
-int		get_length_formula(char *formula)
+int			get_length_formula(char *formula)
 {
 	int i;
 
@@ -37,7 +37,7 @@ int		get_length_formula(char *formula)
 	return (i);
 }
 
-int		check_flags(t_flags *f, char c)
+int			check_flags(t_flags *f, char c)
 {
 	int r;
 
@@ -46,8 +46,6 @@ int		check_flags(t_flags *f, char c)
 		r = -1;
 	if (c == 'c' && (f->fill || f->precision > 0))
 		r = -1;
-	//else if (c == 's' && f->fill)
-	//	f->fill = 0;
 	else if (c == 'p' && (f->fill))
 		r = -1;
 	else if ((c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X') &&
@@ -56,11 +54,10 @@ int		check_flags(t_flags *f, char c)
 	return (r);
 }
 
-int		check_formulas(const char *s, va_list *va)
+int			check_formulas(const char *s, va_list *va)
 {
 	t_flags	f;
 	char	*formula;
-	char	c;
 	int		start;
 	int		i;
 
@@ -73,11 +70,10 @@ int		check_formulas(const char *s, va_list *va)
 			while (is_conv(s, i) == -1 && s[i])
 				i += 1;
 			formula = ft_substr(s, start, (i - start) + 1);
-			c = s[i++];
 			f = ft_init_flags();
 			f = get_flags(formula, f, &(*va));
 			free(formula);
-			if (check_flags(&f, c) != 1)
+			if (check_flags(&f, s[i++]) != 1)
 				return (-1);
 		}
 		else
@@ -86,7 +82,7 @@ int		check_formulas(const char *s, va_list *va)
 	return (1);
 }
 
-void			ft_putnbr_base_fd(long int nbr, int fd, char *base)
+void		ft_putnbr_base_fd(long int nbr, int fd, char *base)
 {
 	long int		nbl;
 	unsigned int	longueur_b;

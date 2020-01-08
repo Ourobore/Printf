@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 08:53:21 by lchapren          #+#    #+#             */
-/*   Updated: 2020/01/07 15:49:01 by lchapren         ###   ########.fr       */
+/*   Updated: 2020/01/08 10:34:01 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void		ft_integer(t_flags f, t_type t, char *base)
 	int	sign;
 
 	sign = 0;
-	//printf("[%d][%d][%d][%d][%d]\n", f.left, f.fill, f.width, f.precision, f.error);
 	if (t.i == 0 && f.precision == 0)
 	{
 		while (f.width)
